@@ -1,8 +1,14 @@
 pipeline {
         agent any
+        tools {nodejs "node"}
 
     stages {
-
+        stage('Unit Test') {
+            steps {
+                    sh "npm i"
+                    sh "npm test"
+            } 
+        }
         stage('ElasticBeanstalk application creation') {
             steps {
 //                  sh "aws elasticbeanstalk create-application --application-name nodejs-application"
@@ -13,7 +19,8 @@ pipeline {
         }
         stage('Cleaning Workspace') {
             steps {
-                cleanWs()            }    
+                cleanWs()            
+            }    
         }
     }          
 }
