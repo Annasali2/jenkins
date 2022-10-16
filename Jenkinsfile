@@ -2,16 +2,12 @@ pipeline {
         agent any
 
     stages {
-        stage('Cleaning Workspace') {
-            steps {
-                cleanWs()            }    
-        }
-        stage('Cloning Git Repo') {
-            steps {
+//         stage('Cloning Git Repo') {
+//             steps {
                 
-                checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/aliannus2/jenkins.git']]])
-            }    
-        }
+//                 checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/aliannus2/jenkins.git']]])
+//             }    
+//         }
         stage('ElasticBeanstalk application creation') {
             steps {
 //                  sh "aws elasticbeanstalk create-application --application-name nodejs-application"
@@ -19,9 +15,10 @@ pipeline {
 //                     sh "eb create Nodesampleapplication-env"
                     sh "eb deploy Nodesampleapplication-env"
             } 
-            
+        }
+        stage('Cleaning Workspace') {
+            steps {
+                cleanWs()            }    
         }
     }          
 }
-
-
