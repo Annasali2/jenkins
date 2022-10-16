@@ -2,8 +2,13 @@
   "name": "Elastic-Beanstalk-Sample-App",
   "version": "0.0.1",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "react-scripts": "^5.0.1"
+  },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "react-scripts test"
   }
 }
