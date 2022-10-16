@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Cloning Git Repo') {
             steps {
+                cleanWs()
                 checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hamza333-tech/jenkins.git']]])
             }    
         }
