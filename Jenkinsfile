@@ -9,7 +9,7 @@ pipeline {
         stage('Cloning Git Repo') {
             steps {
                 
-                checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hamza333-tech/jenkins.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/aliannus2/jenkins.git']]])
             }    
         }
         stage('ElasticBeanstalk application creation') {
